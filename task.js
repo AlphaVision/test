@@ -2,11 +2,18 @@
 // console.log('this is a debug message');
 
 let counter = 0;
+const txtFx = {
+    green: "\x1b[32m",
+    cyan: "\x1b[96m",
+    yellow: "\x1b[33m",
+    underline: "\x1b[4m",
+    resetAll: "\x1B[0m"
+}
 
 function solution(S) {
     // Implement your solution here
 
-    console.log(`Iteration ${counter + 1}\n - OLD string [${S}] length (${S.length})`);
+    console.log(`${txtFx.underline}Iteration ${counter + 1}${txtFx.resetAll}\n - OLD string [${S}] length (${S.length})`);
 
     // Search for 3xA, 2xN, 1xB in the remaining string
     const searchPattern = new RegExp('^(?=.*A.*A.*A)(?=.*N.*N)(?=.*B).*$', 'g');
@@ -14,7 +21,7 @@ function solution(S) {
 
     // End loop when not all letters are preent in the string
     if (isAllLettersPresent === false) {
-        console.log(`\n(i) No more matches found`);
+        console.log(`\n${txtFx.yellow}(i)${txtFx.resetAll} No more matches found`);
         return
     }
 
@@ -32,7 +39,7 @@ function solution(S) {
     solution(S);
 }
 
-// solution("AAKBOKAOKNVJNA9EYRUSI;VBNXBVA=SEUEIASTGBVHXJAHRFTONFLBALYRA[U");
+solution("AAKBOKAOKNVJNA9EYRUSI;VBNXBVA=SEUEIASTGBVHXJAHRFTONFLBALYRA[U");
 // solution("AAANBN-AAANBN-AAANBN-AAANBN-AAANBN-AAANBN-AAANBN-AAAXBN");
 // solution("ABC");
-console.log(`\n\n\nFINAL ANSWER\n - 3xA, 2xN, 1xB was found (${counter}) times in the pattern\n\n\n`);
+console.log(`\n\n\n${txtFx.cyan+txtFx.underline}FINAL ANSWER${txtFx.resetAll}\n${txtFx.green}\u2714${txtFx.resetAll} 3xA, 2xN, 1xB was found (${counter}) times in the pattern\n\n\n`);
