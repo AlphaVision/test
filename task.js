@@ -39,7 +39,7 @@ function solution(S) {
     solution(S);
 }
 
-solution("AAKBOKAOKNVJNA9EYRUSI;VBNXBVA=SEUEIASTGBVHXJAHRFTONFLBALYRA[U");
+// solution("AAKBOKAOKNVJNA9EYRUSI;VBNXBVA=SEUEIASTGBVHXJAHRFTONFLBALYRA[U");
 // solution("AAANBN-AAANBN-AAANBN-AAANBN-AAANBN-AAANBN-AAANBN-AAAXBN");
 // solution("ABC");
 console.log(`\n\n\n${txtFx.cyan+txtFx.underline}FINAL ANSWER${txtFx.resetAll}\n${txtFx.green}\u2714${txtFx.resetAll} 3xA, 2xN, 1xB was found (${counter}) times in the pattern\n\n\n`);
