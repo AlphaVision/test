@@ -1,7 +1,6 @@
 // you can write to stdout for debugging purposes, e.g.
 // console.log('this is a debug message');
-
-let counter = 0;
+const lettersPool = ["B", "N", "A"];
 const txtFx = {
     green: "\x1b[32m",
     cyan: "\x1b[96m",
@@ -10,22 +9,20 @@ const txtFx = {
     resetAll: "\x1B[0m"
 }
 
+let counter = 0;
+
 function solution(S) {
     // Implement your solution here
-
     console.log(`${txtFx.underline}Iteration ${counter + 1}${txtFx.resetAll}\n - OLD string [${S}] length (${S.length})`);
 
-    // Search for 3xA, 2xN, 1xB in the remaining string
+    // Search pattern for 3xA, 2xN, 1xB
     const searchPattern = new RegExp('^(?=.*A.*A.*A)(?=.*N.*N)(?=.*B).*$', 'g');
-    const isAllLettersPresent = searchPattern.test(S);
 
     // End loop when not all letters are preent in the string
-    if (isAllLettersPresent === false) {
+    if (!searchPattern.test(S)) {
         console.log(`\n${txtFx.yellow}(i)${txtFx.resetAll} No more matches found`);
         return
     }
-
-    let lettersPool = ["B", "N", "A"];
 
     for (let letterIndex = 0; letterIndex < lettersPool.length; letterIndex++) {
         for (repeatCount = 0; repeatCount < letterIndex + 1; repeatCount++) {
@@ -34,9 +31,10 @@ function solution(S) {
     }
 
     counter++;
+
     console.log(` - NEW string [${S}] length (${S.length})\n\n`);
 
-    solution(S);
+    solution(S); // repeat
 }
 
 // solution("AAKBOKAOKNVJNA9EYRUSI;VBNXBVA=SEUEIASTGBVHXJAHRFTONFLBALYRA[U");
